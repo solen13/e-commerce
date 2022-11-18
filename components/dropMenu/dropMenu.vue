@@ -5,13 +5,13 @@
 
         <template v-slot:activator="{ on, attrs }">
           <v-btn class="transparent " elevation="0" dark  v-bind="attrs"  v-on="on">
-            {{item.title}}
+            {{item.name}}
           </v-btn>
         </template>
 
         <v-list>
-          <v-listItem v-for="(i,index) in item.subcategories" :key="index">
-            <v-list-item-title style="cursor: pointer" @click="listClicked(i)">{{i}}</v-list-item-title>
+          <v-listItem v-for="(i,index) in item.children" :key="index">
+            <v-list-item-title style="cursor: pointer" @click="listClicked(i.name)">{{i.name}}</v-list-item-title>
             <v-divider/>
           </v-listItem>
         </v-list>

@@ -1,58 +1,64 @@
 const list =[
 
   {
-     title:'Kadın giyim',
-    subcategories:[
+     name:'Kadın giyim',
+    id:1,
+    bol:false,
+    children:[
 
-        'womens-dresses',
-        'womens-shoes',
-        "womens-watches",
-        "womens-bags",
-       "womens-jewellery",
+      {name:'womens-dresses'},
+      {name:'womens-shoes'},
+      {name:"womens-watches"},
+      {name:"womens-bags"},
+      {name:"womens-jewellery"},
+
         ]
 
 
   },
   {
-    title:'Erkek giyim',
-
-    subcategories:[
-      "mens-shirts",
-      "mens-shoes",
-      "mens-watches",
+    name:'Erkek giyim',
+     id:2,
+    bol:false,
+    children:[
+      {name:"mens-shirts"},
+      {name:"mens-shoes"},
+      {name:"mens-watches"},
     ]
 
   },
 
   {
-    title:'Medikal',
+    name:'Medikal',
+    id:3,
+    bol:false,
+    children: [
+      {name:"fragrances"},
+      {name:"skincare"},
+      {name:"groceries"},
 
-    subcategories: [
-      "fragrances",
-      "skincare",
-      "groceries",
     ]
 
   }
   ,
 
   {
-    title:'Teknoloji',
-    subcategories:[
-      "smartphones",
-      "laptops",
+    name:'Teknoloji',
+    bol:false,
+    children:[
+      {name:"smartphones"},
+      {name:"laptops"},
     ]
   },
   {
-    title:'Aksesuar',
-    subcategories:[
-      "automotive",
-      "motorcycle",
-      "lighting"
+    name:'Aksesuar',
+    bol:false,
+    children:[
+      {name:"automotive"},
+      {name:"motorcycle"},
+      {name:"lighting"},
     ]
-  }
-
-
+}
 
 
 

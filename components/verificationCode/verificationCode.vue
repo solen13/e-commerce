@@ -1,6 +1,3 @@
-
-
-
 <template>
   <div
     v-bind:class="{

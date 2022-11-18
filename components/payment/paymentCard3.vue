@@ -14,9 +14,11 @@
       success
      </v-alert>
 
-    <div >
+    <div   >
       <h2 class="font-weight-bold mb-3 ">Verification Code</h2>
-      <verification-code :loading="false" class="input" v-on:change="onChange" v-on:complete="onComplete" />
+
+      <verification-code :loading="false" class="input" v-on:change="onChange" v-on:complete="onComplete" :fieldWidth="40"/>
+
       <v-btn class="my-4 primary" small> <v-icon small class="mx-1">mdi-replay</v-icon> Send again</v-btn>
     </div>
 

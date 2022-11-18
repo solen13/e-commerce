@@ -11,7 +11,7 @@
 
            <drop-menu/>
 
-          <v-card class="transparent elevation-0 d-flex align-center  justify-center mr-7" >
+          <v-card class="transparent elevation-0 d-flex align-center justify-sm-space-around "   >
 
             <v-btn @click.stop="responsiveMenuBtn"  fab small class="d-sm-none  hidden-md-and-up  transparent elevation-0 ">
               <v-icon v-if="drewer"> mdi-close </v-icon>
@@ -126,5 +126,6 @@ created() {
   border-radius: 5px;
   background-color: #EBEEF3;;
   color: #6C7C8C;
+  width: 50%;
 }
 </style>

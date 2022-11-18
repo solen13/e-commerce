@@ -8,7 +8,7 @@
 
 <script>
 import NavBar from "@/components/header/navBar";
-import Sepet from "@/components/Card/sepet";
+import Sepet from "@/components/Card/shopping-box";
 
 export default {
   components: { Sepet, NavBar}

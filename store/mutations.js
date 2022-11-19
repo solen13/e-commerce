@@ -44,7 +44,17 @@ export default {
   },
   shoppingCartRemove(state){
     state.shoppingCart=[]
-  }
+  },
+
+  cardPlus(state, payload) {
+    payload.count++;
+  },
+  cardreduce(state, payload) {
+
+    if (payload.count > 1) {
+      payload.count--;
+    }
+  },
 
 
 }

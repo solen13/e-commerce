@@ -35,9 +35,7 @@
 
         <template v-if="categoriShow">
          <v-list-item v-for="item in categoriList">
-          <v-list-item-icon>
-            <v-icon>mdi-table</v-icon>
-          </v-list-item-icon>
+
           <v-list-item-content>
             <v-list-item-title  >
               <p @click="showSubtitle(item)">{{item.name}}</p>

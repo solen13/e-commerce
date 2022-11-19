@@ -1,51 +1,65 @@
 <template>
 
-    <v-row class="d-flex justify-center mt-16">
-
-      <v-col   v-for="(item ,index) in data " :key="index" cols="6" sm="2"   class=" d-flex justify-center " >
-
-        <v-card width="200" height="350" class="blue-grey lighten-5  mt-4">
+        <v-card v-if="data" width="200" height="350" class="blue-grey lighten-5 ">
 
           <v-window show-arrows >
 
-            <template v-slot:prev="{ on, attrs }">
+            <template v-slot:prev="{ on, attrs } ">
               <v-btn
-                    color="grey"
+                    class="transparent"
                     v-bind="attrs"
                     v-on="on"
                     x-small
                     fab>
-                <v-icon small>mdi-arrow-left-bold</v-icon>
+                <v-icon small>mdi-chevron-left</v-icon>
               </v-btn>
             </template>
 
             <template v-slot:next="{ on, attrs }">
               <v-btn
-                    color="grey"
+                class="transparent"
                     v-bind="attrs"
                     v-on="on"
                     x-small
                     fab>
-                <v-icon small>mdi-arrow-right-bold</v-icon>
+                <v-icon small>mdi-chevron-right</v-icon>
               </v-btn>
             </template>
 
-            <v-window-item v-for="(n,index) in item.images.length" :key="index" >
+            <v-window-item v-for="(n,index) in data.images.length" :key="index" >
               <v-card width="100%" class="d-flex justify-center">
-                <v-img :src=item.images[index] max-width="200px" height="150" contain  ></v-img>
+                <v-img :src=data.images[index] max-width="200px" height="150" contain  ></v-img>
               </v-card>
             </v-window-item>
 
           </v-window>
 
-          <v-card-title class="caption" >{{ item.title }}</v-card-title>
-         <span class="d-flex"> <p>price:</p> <h3>{{item.price}}$</h3></span>
-          <v-btn class="card-btn" :class="activeClass" @click="addToCard(item)">Add</v-btn>
-          <v-btn @click="view(item)">View</v-btn>
+
+
+          <div class="pa-2">
+
+            <h5 class="caption text-center" style="height: 50px" >{{ data.title }}</h5>
+
+            <span class="d-flex " > <span class="font-weight-medium orange--text ">price: </span> <h4>{{data.price}}$</h4></span>
+
+            <v-rating class="mt-2" v-model=data.rating background-color="orange lighten-3" color="orange" x-small/>
+
+            <div class="d-flex justify-space-between  mt-4" >
+              <template v-if="isActive">
+                <v-btn x-small fab @click="sour(isActive)">-</v-btn>
+                  <p > {{isActive.count}}</p>
+                <v-btn x-small fab @click="plus(isActive)">+</v-btn>
+              </template>
+
+
+              <v-btn v-else class="card-btn"   @click="addToCard(data)">Add</v-btn>
+              <v-btn @click="view(data)">View</v-btn>
+            </div>
+
+          </div>
 
         </v-card>
-      </v-col>
-    </v-row>
+
 
 </template>
 
@@ -62,23 +76,32 @@ export default {
 
   props:{
     data:{
-      type:Array,
-      default:[],
-
+      type:Object,
+      default:{},
     }
   },
   methods:{
     addToCard(id){
-
       this.$store.dispatch('shoppingCart',id)
-
     },
     view(item){
       this.$router.push('/detail')
       this.$store.commit('detail',item)
-    }
+    },
+    plus(item){
+      this.$store.commit('cardPlus',item)
+
+    },
+    sour(item){
+      this.$store.commit('cardreduce',item)
+    },
 
   },
+  computed:{
+    isActive(){
+     return  this.$store.state.shoppingCart.find(card=>card.id=== this.data.id)
+    }
+  }
 
 
 }

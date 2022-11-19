@@ -31,8 +31,6 @@
 
   </div>
 
-
-
 </template>
 
 <script>
@@ -48,8 +46,6 @@ export default {
     remove(item){
       this.$store.dispatch('removeItemFromCart',item.id)
     },
-
-
     plus(item){
     this.$store.dispatch('addQty',item.id)
 
@@ -97,6 +93,7 @@ export default {
   z-index: 99;
   right: 0;
   margin-top: 80px;
+  margin-right: 10px;
 
 
 }

@@ -13,16 +13,23 @@ export default {
   },
 
   async searchAction({ commit }, payload) {
-    let data =await fetch(`https://dummyjson.com/products/search?q=${payload}`,{method:'GET'})
-    const res=await data.json()
-    console.log(res)
-    commit('searchText',res.products)
+
+
+    this.$axios.get(`https://dummyjson.com/products/search?q=${payload}`).then(res=>{
+
+      commit('searchText',res.data.products)
+    })
+
+
+
   },
   async categories({ commit }, payload) {
-    let data =await fetch(`https://dummyjson.com/products/category/${payload}`,{method:'GET'})
-    const res=await data.json()
-    console.log(res)
-    commit('categories',res.products)
-  },
+   await this.$axios.get(`https://dummyjson.com/products/category/${payload}`).then(res=>{
+      commit('categories',res.data.products)
+    })
+
+  }
+
+
 
 }

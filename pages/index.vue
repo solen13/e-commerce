@@ -1,6 +1,11 @@
 <template>
  <v-main class="main">
-  <shopping-card :data="cardsLists"/>
+   <v-row  class="mt-16 d-flex justify-center">
+     <v-col v-for="item in cardsLists" cols="6"  md="3" xl="3" class="d-flex justify-center"  >
+       <shopping-card  :data="item" :key="item.id" />
+     </v-col>
+   </v-row>
+
  </v-main>
 </template>
 
